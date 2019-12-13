@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 
-import {useDispatch} from "../context";
+import {useDispatch} from "../context/context";
 import {ADD} from "../actions";
 
 export default () => {

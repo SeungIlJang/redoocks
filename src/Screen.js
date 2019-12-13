@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from "./Header";
-import {useFns,useSetLang,useT} from "./context";
-// import {LangContext} from "./context";
+import {useSetLang,useT} from "./context/langContext";
+import {useFns} from "./context/userContext";
 
 export default () => {
     const {logUserIn,logUserOut}  = useFns();

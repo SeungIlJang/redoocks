@@ -1,37 +1,33 @@
 import React from 'react';
-import { COMPLETE, DEL, UNCOMPLETE} from "../reducer";
-import Add from "./Add";
-import List from "./List";
-import ToDo from "./ToDo";
-import  {useState} from "../context";
-// import Screen from './Screen';
-// import UserContextProvider from "./context";
-// import {Lang,UserContextProvider} from "./context";
-// import translations from "./translations";
+import ToDos from "./ToDos";
+import ToDosProvider from "../context/context";
+
+import Screen from '../Screen';
+import UserContextProvider from "../context/userContext";
+import LangProvider from "../context/langContext";
+import translations from "./lang/translations";
 
 function App() {
-    const {toDos,completed} = useState();
 
     return(
         <>
-            <Add/>
-            <List name={"To Do"}>
-                {toDos.map((toDo)=>
-                    <ToDo key={toDo.id} id={toDo.id} text={toDo.text} />
-                )}
-            </List>
-            <List name={completed.length > 0 ? "Completed":""}>
-                {completed.map((toDo)=>(
-                    <ToDo key={toDo.id} id={toDo.id} text={toDo.text} isCompleted={true} />
-                    ))}
-            </List>
-            </>
+        <LangProvider defaultLang="en" translations={translations}>
+        <UserContextProvider>
+        <ToDosProvider>
+                <Screen/>
+                <ToDos/>
+        </ToDosProvider>
+        </UserContextProvider>
+        </LangProvider>
+
+
+
+        </>
     );
 }
 export default App;
 
 {/*function App() {*/}
-
 {/*  return (*/}
 {/*    <Lang defaultLang="en" translations={translations}>*/}
 {/*        <UserContextProvider>*/}

@@ -1,5 +1,5 @@
 import React from "react";
-import {useUser} from "./context";
+import {useUser} from "./context/userContext";
 
 const Header = () => {
     const {name,loggedIn} = useUser();

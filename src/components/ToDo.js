@@ -1,6 +1,6 @@
 import React from "react";
 import {COMPLETE, DEL, UNCOMPLETE} from "../actions";
-import {useDispatch} from "../context";
+import {useDispatch} from "../context/context";
 
 export default ({text,id,isCompleted}) =>{
     const dispatch = useDispatch();
